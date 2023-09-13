@@ -1,0 +1,84 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style> 
+  div {
+      text-align: center;
+      margin: 0 auto;
+    }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to bottom right, #ff0303, #ffffff, #FFEB00);
+    min-height: 100vh;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  form {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  } 
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="submit"] {
+    
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+  }
+  .login-button {
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    margin: 0 auto;
+  }
+  </style>
+  <script>
+   function validateForm() {
+  // Validate the username and password.
+    var un = document.getElementById("username").value;
+    var pw = document.getElementById("password").value;
+  if (un === 'admin' && pw === 'admin') {
+    // The user is authenticated.
+    alert('Authenticated Successfully');
+    window.location.href = "https://www.google.com";
+  } else {
+    // The user is not authenticated.
+    alert('Invalid username or password. Reopen Application');
+    window.close(); 
+  }
+}
+
+  </script>
+</head>
+<body>
+  <div style="text-align: center; font-size: 24px;">
+    <h3>ChargEazy</h3>
+    <text>login page</text>
+  </div>
+  <form action="C:\Users\vmuser\Documents\main.html" method="post">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br><br>
+    <input type="submit" value="Login" onclick="validateForm()">
+    <a href="C:\Users\vmuser\Documents\sign_up_page.html" class="login-button">If not a user, Click here to Sign Up</a>
+  </form>
+</body>
+</html>

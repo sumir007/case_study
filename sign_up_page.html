@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up Page</title>
+  <style> 
+  div {
+      text-align: center;
+      margin: 0 auto;
+    }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to bottom right, #ff0303, #ffffff, #FFEB00);
+    min-height: 100vh;
+
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  form {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  } 
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="submit"] {
+    
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+  }
+  .login-button {
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    
+  }
+  </style>
+  <script>
+   function validateForm() {
+  // Validate the username and password.
+    var un = document.getElementById("username").value;
+    var pw = document.getElementById("password").value;
+    var cnfPw = document.getElementById("confirmPassword").value;
+    var userId = document.getElementById("userId").value;
+    var address = document.getElementById("address").value;
+    var emailId = document.getElementById("emailId").value;
+  if (un === '' || pw === '' || cnfPw === '' || userId === '' || address === '' || emailId === '') {
+    alert('Please fill in all the fields.');
+    return false;
+  }
+
+  if (pw !== cnfPw) {
+    alert('Passwords do not match.');
+    return false;
+  }
+
+  return true;
+}
+  </script>
+</head>
+<body>
+  <div style="text-align: center; font-size: 24px;">
+    <h3>ChargEazy</h3>
+    <span style="font-size: 16px; margin-left: 20px;">sign up page</span>
+  </div>
+  <form action="C:\Users\vmuser\Documents\main.html" method="post">
+    <label for="emailId">Email Id:</label>
+    <input type="text" id="emailId" name="emailId"><br>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br>
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword"><br>
+    <label for="userId">User Id:</label>
+    <input type="text" id="userId" name="userId"><br>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address"><br><br>
+    <input type="submit" value="Sign Up" onclick="validateForm()">
+    <a href="C:\Users\vmuser\Documents\login_page.html" class="login-button">If already a user, Click here to Sign In</a>
+  </form>
+</body>
+</html>

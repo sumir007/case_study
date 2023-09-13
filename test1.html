@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Nearest EV Charging Station</title>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to bottom right, #ff0303, #ffffff, #FFEB00);
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.other-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #0069D9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.other-button {
+  background-color: #0069D9;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+</style>
+<script>
+function findNearestEVChargingStation() {
+  var address = document.getElementById("address").value;
+  // Get the database array
+  var chargingStations = [
+    {
+      "name": "Charging Station 1",
+      "distance": 10,
+    },
+    {
+      "name": "Charging Station 2",
+      "distance": 20,
+    },
+    {
+      "name": "Charging Station 3",
+      "distance": 30,
+    },
+  ];
+
+  // Get the user input
+  var userInput = Number(address);
+
+  // Sort the charging stations by distance
+  chargingStations.sort(function(a, b) {
+    return a.distance - b.distance;
+  });
+
+  // Find the closest charging station to the user input
+  var closestChargingStation = chargingStations[0];
+  for (var i = 1; i < chargingStations.length; i++) {
+    if (chargingStations[i].distance < closestChargingStation.distance) {
+      closestChargingStation = chargingStations[i];
+    }
+  }
+
+  // Create a table to display the charging stations
+  var table = document.createElement("table");
+  table.innerHTML = "<tr><th>Name</th><th>Distance</th></tr>";
+
+  var row = document.createElement("tr");
+  var nameCell = document.createElement("td");
+  nameCell.innerHTML = closestChargingStation.name;
+  var distanceCell = document.createElement("td");
+  distanceCell.innerHTML = closestChargingStation.distance;
+
+  row.appendChild(nameCell);
+  row.appendChild(distanceCell);
+
+  table.appendChild(row);
+
+  // Display the table
+  document.getElementById("results").innerHTML = table.outerHTML;
+}
+</script>
+</head>
+<body>
+<div class="container">
+<h1>Nearest EV Charging Station</h1>
+</div>
+<div class="other-content">
+<label for="address">Enter your address:</label>
+<input type="text" id="address" placeholder="Enter your address">
+<button onclick="findNearestEVChargingStation()">Find Nearest EV Charging Station</button>
+<label for="r"> </label>
+<label for="or">OR</label>
+<button class="other-button">Use Current Location</button>
+</div>
+<div id="results"></div>
